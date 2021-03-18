@@ -1,14 +1,17 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as HostRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import './res/styles/app.initialize.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 ReactDOM.render(
   <React.StrictMode>
-  <HostRouter>
+  <BrowserRouter>
     <App />
-  </HostRouter>
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

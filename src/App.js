@@ -4,6 +4,9 @@ function App() {
   return (
     <div className="page-wrapper">
       <Landmarks.TopBar />
+      <div className="layout-middle-wrapper">
+        <Landmarks.PageMainRouter />
+      </div>
       <Landmarks.BottomBar />
     </div>
   );

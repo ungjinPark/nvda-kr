@@ -1,14 +1,19 @@
-
+:root{//common
+  --accent-body:#660099;
+}
 @media screen and (prefers-color-scheme:dark) {
   :root {
     --main-body:#0d0a08;
     --main-forgrounds:#fdfaf8;
-    --accent-body:#660099;
+    --available-link-color:#ffceff;
+    --visited-link-color:#bf8eff;
   }
 }
 @media screen and (prefers-color-scheme:light), (prefers-color-scheme:no-preference){
   :root {
     --main-body:#fdfaf8;
     --main-forgrounds:#0d0a08;
+    --visited-link-color:#bf8eff;
+    --available-link-color:#7f5eff;
   }
 }
