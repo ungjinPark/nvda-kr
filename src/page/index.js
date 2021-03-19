@@ -1,23 +1,30 @@
 import React, {useEffect} from 'react';
 import {NavLink, Route} from 'react-router-dom'
-import PageRouteProps from "./info.PageRoute";
+
+const RouteModule = (props) =>{
+    useEffect(()=>{
+      let timeout;
+      const PageAnnouncer = document.body.querySelector('#PageAnnouncer');
+      PageAnnouncer.innerHTML = `페이지 로드됨 : ${props.title}`;
+      timeout = setTimeout(()=>{
+        clearTimeout(timeout);
+        PageAnnouncer.innerHTML = '';
+      },100)
+      document.title = props.title;
+    },[props])
+    return (
+      <props.component />
+    )
+}
 
 const PageRoute = (props) =>{
-  useEffect(()=>{
-    document.title = props.title;
-    let timeout;
-    const PageAnnouncer = document.body.querySelector('#PageAnnouncer');
-    timeout = setTimeout(()=>{
-      clearTimeout(timeout);
-      PageAnnouncer.innerHTML = `페이지 로드됨 - ${document.title}`;
-    },100);
-    timeout = setTimeout(()=>{
-      clearTimeout(timeout);
-      PageAnnouncer.innerHTML = '';
-    })
-  },[props])
   return (
-    <Route path={props.path} exact={props.exact} component={props.component} />
+    <Route strict={props.strict} path={props.path} exact={props.exact} render={ 
+    ()=>{
+      return (
+      <RouteModule {...props} />
+    )
+    }} />
   )
 }
 
@@ -27,4 +34,4 @@ const PageNavLink = (props) =>{
   )
 }
 
-export {PageRouteProps,PageNavLink,PageRoute};
+export {PageNavLink,PageRoute};

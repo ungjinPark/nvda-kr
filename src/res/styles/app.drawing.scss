@@ -1,11 +1,74 @@
 @import './app.colors.scss';
+@use 'sass:color';
+@use 'sass:meta';
+
+@mixin textTool (){
+  .block,&.block{
+    display:block;
+  }
+  .center,&.center{
+    text-align: center;
+  }
+  .bold,&.bold{
+    font-weight: bold;
+  }
+  .text,&.text{
+    &.wide-margin p{
+      margin:1em 0;
+    }
+    &.large{
+      font-weight:700;
+      font-size:1.8em;
+    }
+    &.middle{
+      font-weight: bold;
+      font-size:1.3em;
+    }
+    &.small{
+      font-weight:normal;
+      font-size:1em;
+    }
+    &.smaller{
+      font-size:0.5em;
+    }
+  }
+}
 
 @mixin drawing {
   html,body,.page-wrapper{
     background-color: var(--main-body);
     color: var(--main-forgrounds);
   }
-  ul,li{list-style: none;}
+  ul{list-style: none;}
+  p,div,section,article,aside,li,a{
+    @include textTool();
+  }
+  nav li{
+    margin:0;
+    &::before{
+      display: none;
+    }
+  }
+  main li{
+    display:flex;
+    margin:1em 0;
+    flex:1;
+    &::before{
+      content:"-";
+      margin-right:0.4em;
+    }
+  }
+
+  aside{
+    border-radius: 0.5em;
+    &.type{
+      padding:0.2em;
+    }
+    &.info{
+      background-color: var(--aside-info);
+    }
+  }
+
   .layout-middle-wrapper{
     a{
       text-decoration: none;
@@ -20,6 +83,124 @@
         content:"\ecd5";
         font-family: 'icomoon' !important;
         margin:0 0.2rem;
+      }
+    }
+
+    table{
+      border-collapse: collapse;
+      &.normal-style{
+        width:60%;
+        font-size:0.9em;
+      }
+      th,td{
+        border:solid 1px;
+      }
+      td{padding:0.2em;}
+
+      &.sys-req{
+        col.first{width:25%;}
+        col.second{width:auto;}
+        .column-header th{
+          font-size:1.2em;
+          padding:0.5em 0;
+        }
+      }
+
+      @media screen and (max-width:1024px) {
+        &.normal-style{
+          width:100%;
+        }
+        &.sys-req{
+          col.first{width:35%;}
+          col.second{width:auto;}
+        }
+      }
+
+    }
+    
+    a.button-style{
+      display:block;
+      &.facebook {
+        background-color:#3b5998; color:#fff;
+        padding:0.2em 1em;
+        width:fit-content;
+        border-radius: 0.2em;
+        margin:0 auto;
+        font-family: 'klavika_boldbold';
+      }
+      &.download{
+        color:white; padding:0.2em;
+        display:flex;
+        margin:0.2em 0;
+        &.nvaccess{
+          background-color:#ff7a00;
+        }
+        &.wellbook{
+          background-color:#36bfaf;
+        }
+        .logo.nvaccess{
+          display:inline-block;
+          width:1.4em; height:1.4em;
+          vertical-align: middle;
+          background:
+           url('../img/nvaccess.png'),
+           #fff;
+          background-size:cover;
+          border-radius: 50%;
+          margin-right:0.2em;
+        }
+        &:hover,&:focus{
+          filter:brightness(1.2);
+        }
+        .icon-nvda{
+          width:1em;
+          height: 1em;
+          display: flex;
+          font-size:2.5em;
+          align-self: center;
+          justify-self: center;
+          justify-content: center;
+          text-align: center;
+          background-color:var(--accent-body);
+          &:before{
+            align-self:center;
+          }
+        }
+        @media screen and (min-width:1024px){
+          &{
+            width:60%;
+          }
+          .icon-nvda{
+            font-size:4em;
+          }
+        }
+        .text-content{
+          flex:1;
+          text-shadow: 1px 0 1px #000;
+          transition:text-shadow 0.3s;
+          &:hover,&:focus{
+            text-shadow: 
+            1px 0 2px #000,
+            2px 0 2px #000
+            ;
+          }
+        }
+      }
+      @include textTool();
+    }
+
+    h1,h2,h3,h4,h5,h6,p,img,a,table,ul,ol,aside.info{
+      animation: Appearance 0.4s 1 linear;
+      @media (prefers-reduced-motion:reduce){
+        animation:none;
+      }
+    }
+    @keyframes Appearance {
+      from {
+        opacity: 0.2;
+      }
+      to {
+        opacity: 1;
       }
     }
   }
@@ -48,5 +229,10 @@
       box-shadow: inset 0 1px 0.2rem 0.01rem #000;
       background-color: rgba(0,0,0,0.3);
     }
+
+  }
+
+  .layout-bar.common-bottoms{
+    footer{background-color:#200f3f;}
   }
 }

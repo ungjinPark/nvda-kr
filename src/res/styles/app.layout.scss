@@ -8,12 +8,12 @@
   width:100%; height:100%;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: 1fr 8fr 1fr;
+  grid-template-rows: 1fr 12fr 1fr;
   grid-auto-rows: 1fr;
   grid-auto-flow: column;
   gap:1.2rem;
-  p{margin:0.15rem 0;}
 }
+p{margin:0.3em 0;}
 
 .layout-bar.common-tops{
   grid-column: 1 / span 2; grid-row: 1;
@@ -31,45 +31,56 @@
 .layout-bar.common-tops .header-navigation{
   display: flex;
   width:100%; flex-flow:column;
-  nav{min-height:5vh; max-height:15vh;
+  nav{flex:1;
   margin-top:1.5%}
   nav ul{display: flex; height:100%;}
   nav ul li{width:15vw; text-align: center;}
   li a{
-    font-size:0.8rem;
+      font-size:1em;
       width:100%; height:100%;
       display: flex; place-content: center;
       align-items: center; justify-content: center;
   }
 }
 
-.layout-bar.common-bottoms {
-  grid-column: 1 / span 2;
-  grid-row: 3;
-}
-
 .layout-middle-wrapper{
   grid-row:2;
   grid-column: 1 / span 2;
   width:100%; height:100%;
+  font-size:1.6em; width:95%;
+  margin:0 auto;
 }
 
-//page - home
-.page-intro{
-  font-size:1.6em;
-  width:95%;
-  margin:0 auto;
+.layout-bar.common-bottoms {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  display:flex;
+  footer{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-self: flex-end;
+    align-items:center;
+    justify-content: center;
+    justify-items: center;
+  }
 }
 
 @media screen and (max-width:1024px) {
   html,body{
-    font-size:1.15rem;
+    font-size:0.75em;
   }
+
+  p{margin:0.25em 0;}
+
   .layout-bar.common-tops{
     .header-navigation {
       nav ul>li{
         width:25vw;
       }
+      li a{
+        font-size:1.7em;
+      }
     }
-  } 
+  }
 }/*mobile and low resolution*/

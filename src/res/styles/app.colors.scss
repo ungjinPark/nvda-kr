@@ -3,17 +3,19 @@
 }
 @media screen and (prefers-color-scheme:dark) {
   :root {
-    --main-body:#0d0a08;
+    --main-body:#010915;
     --main-forgrounds:#fdfaf8;
     --available-link-color:#ffceff;
     --visited-link-color:#bf8eff;
+    --aside-info:#186e4f;
   }
 }
 @media screen and (prefers-color-scheme:light), (prefers-color-scheme:no-preference){
   :root {
     --main-body:#fdfaf8;
-    --main-forgrounds:#0d0a08;
-    --visited-link-color:#bf8eff;
+    --main-forgrounds:#0d1c1f;
+    --visited-link-color:#4f1ecf;
     --available-link-color:#7f5eff;
+    --aside-info:#58de4f;
   }
 }
