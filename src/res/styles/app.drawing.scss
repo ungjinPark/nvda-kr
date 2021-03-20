@@ -3,6 +3,27 @@
 @use 'sass:meta';
 
 @mixin textTool (){
+  &.color-emphasis,.color-emphasis{
+    background-attachment: fixed;
+    color:transparent; background-size:100%;
+    background: var(--gradient-text-color);
+    background-clip: text;
+    @media  (-ms-high-contrast:none), (-ms-high-contrast:active){
+      &{
+        color:white;
+        border-radius: 0.2em; padding:0.1em;
+        background: linear-gradient(45deg, #1f6f4f,#3f6faf,#af9fdf);
+        text-shadow: 1px 1px 1px #000;
+      }
+    }
+  }
+  .text-icon{
+    &:before{
+      font-size:0.8em;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  }
   .block,&.block{
     display:block;
   }
@@ -37,9 +58,9 @@
 @mixin drawing {
   html,body,.page-wrapper{
     background-color: var(--main-body);
-    color: var(--main-forgrounds);
+    color: var(--main-foreground);
   }
-  ul{list-style: none;}
+  ul{display:block; list-style: none;}
   p,div,section,article,aside,li,a{
     @include textTool();
   }
@@ -49,13 +70,23 @@
       display: none;
     }
   }
-  main li{
-    display:flex;
-    margin:1em 0;
-    flex:1;
-    &::before{
-      content:"-";
-      margin-right:0.4em;
+  main ul{
+    width:100%;
+    li{
+      display: grid;
+      margin:1em 0;
+      width:100%;
+      grid-template-columns: 1em auto;
+      flex:1;
+      span.li-text{
+        justify-self: flex-start;
+      }
+      span.li-bullet::before{
+        content:"-";
+        margin-right:0.4em;
+        grid-column: 1;
+        justify-self: flex-start;
+      }
     }
   }
 
@@ -83,6 +114,73 @@
         content:"\ecd5";
         font-family: 'icomoon' !important;
         margin:0 0.2rem;
+      }
+    }
+    
+
+    div.accordion-content-box{
+      margin:1em 0;
+      section.accordion-section{
+        margin:0; padding:0.5em;
+        border:solid 1px;
+        border-top-right-radius: 1em;
+      }
+    }
+
+    button.fency-button{
+      position: relative;
+      border:solid 1px;
+      background:var(--accent-body);
+      color:#fff;
+      padding:0.3em 0.2em;
+      .state-symbol{
+        font-size:0.8em;
+      }
+      &.nvda-kr-accordion{
+        display:inline-grid; text-align: center;
+        width:60%;
+        margin-bottom:0.5em;
+        grid-template-columns: minmax(1em,1fr) minmax(1em,4em);
+        grid-auto-rows: 1fr;
+        .slot-button-text{
+          text-align: left;
+          grid-column: 1;
+          text-align: center;
+        }
+        .state-symbol{
+          grid-column: 2;
+          grid-row:auto;
+          text-align: center;
+          justify-self: center;
+          align-self: center;
+        }
+        @media screen and (max-width:1024px){
+          &{
+            width:100%;
+          }
+        }
+      }
+
+      &.size-large{
+        font-size:1.4em;
+      }
+      &.size-normal{
+        font-size:1em;
+      }
+      &.size-small{
+        font-size:0.8em;
+      }
+      &.round-circle{
+        border-radius: 50%;
+      }
+      &.round-large{
+        border-radius: 0.8em;
+      }
+      &.round-normal{
+        border-radius: 0.4em;
+      }
+      &.round-little{
+        border-radius: 0.2em;
       }
     }
 
@@ -189,7 +287,7 @@
       @include textTool();
     }
 
-    h1,h2,h3,h4,h5,h6,p,img,a,table,ul,ol,aside.info{
+    h1,h2,h3,h4,h5,h6,p,img,a,table,ul,ol,aside.info,span,button,input,textarea,select{
       animation: Appearance 0.4s 1 linear;
       @media (prefers-reduced-motion:reduce){
         animation:none;
@@ -233,6 +331,7 @@
   }
 
   .layout-bar.common-bottoms{
-    footer{background-color:#200f3f;}
+    footer{background-color:#200f3f;
+    color:white;}
   }
 }

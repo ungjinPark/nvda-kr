@@ -4,18 +4,20 @@
 @media screen and (prefers-color-scheme:dark) {
   :root {
     --main-body:#010915;
-    --main-forgrounds:#fdfaf8;
+    --main-foreground:#fdfaf8;
     --available-link-color:#ffceff;
     --visited-link-color:#bf8eff;
     --aside-info:#186e4f;
+    --gradient-text-color:linear-gradient(45deg, #9fefaf,#5fafcf,#af9fdf);
   }
 }
 @media screen and (prefers-color-scheme:light), (prefers-color-scheme:no-preference){
   :root {
     --main-body:#fdfaf8;
-    --main-forgrounds:#0d1c1f;
+    --main-foreground:#0d1c1f;
     --visited-link-color:#4f1ecf;
     --available-link-color:#7f5eff;
     --aside-info:#58de4f;
+    --gradient-text-color:linear-gradient(45deg, #1f6f4f,#3f6faf,#af9fdf);
   }
 }

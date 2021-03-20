@@ -17,8 +17,8 @@ html,body,body>#root{
 h1{font-size:2em;}
 h2{font-size:1.75em; margin:0.3em 0;}
 h3{font-size:1.55em; margin:0.2em 0;}
-h4{font-size:1.35em; margin:0.1em 0;}
-h5{font-size:1.25rem; margin:0.1rem 0;}
+h4{font-size:1.25em; margin:0.1em 0;}
+h5{font-size:1.1rem; margin:0.1rem 0;}
 h6{font-size:1em; margin:0.1rem 0;}
 .invisible-a11y{border: 0;clip: rect(0 0 0 0);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}
 
@@ -32,4 +32,9 @@ h1 .icon-nvda{
 h1 .icon-nvda::before{
   font-size:1.2em;
   text-align: center;
+}
+
+button,input,select,textarea{
+  appearance: none;
+  border:none;
 }
