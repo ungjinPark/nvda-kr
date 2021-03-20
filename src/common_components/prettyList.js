@@ -1,4 +1,11 @@
-const PrettyItem = ({children})=>{
+const PrettyUl = ({children})=>{
+    return (
+        <ul className="pretty-ul">
+            {children}
+        </ul>
+    );
+}
+const PrettyLi = ({children})=>{
     return (
         <li>
             <span role="none" className="li-bullet" aria-hidden="true">
@@ -10,4 +17,4 @@ const PrettyItem = ({children})=>{
         </li>
     );
 }
-export default PrettyItem;
+export {PrettyLi,PrettyUl};
