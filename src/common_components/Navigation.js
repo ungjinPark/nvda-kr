@@ -6,9 +6,13 @@ const Navigation = ({PageList}) => {
     <ul>
         {
           PageList.map((el,idx)=>{
-            return <li key={idx}>
-              <PageNavLink to={el.to} exact={el.link_exact} menuText={el.menuText} />
-            </li>
+            if(el.menuText !== undefined){
+              return <li key={idx}>
+                <PageNavLink to={el.to} exact={el.link_exact} menuText={el.menuText} />
+              </li>
+            }else{
+              return;
+            }
           })
         }
     </ul>

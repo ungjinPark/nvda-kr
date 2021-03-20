@@ -1,4 +1,5 @@
 const DownloadPage = () => {
+  
   return (
     <div>
     <h2>NVDA 다운로드</h2>

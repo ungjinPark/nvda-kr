@@ -1,6 +1,7 @@
 const AboutForum=()=>{
     return  (
         <div className="page-main forum">
+            
             <article className="forum-intro">
                 <div className="text center wide-margin">
                     <h2>NVDA 한국 사용자 포럼 소개</h2>

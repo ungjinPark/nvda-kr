@@ -1,25 +1,21 @@
-import React from 'react';
-import {BrowserRouter as Router, Redirect, Switch, useRouteMatch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {Route, BrowserRouter as Router, useRouteMatch } from 'react-router-dom';
 import { HomeRoute } from './info.PageRoute';
-import PageRouter from '../common_components/PageRouter';
 import { Navigation } from '../common_components/Navigation';
-
-
+import Pager from "./PageRouter";
 const Home = () => {
   let {url,path} = useRouteMatch();
-
   return (
     <Router>
     <div className="main-body page-intro">
       <nav>
         <h2 className="invisible-a11y">하위 메뉴</h2>
-        <Navigation PageList={HomeRoute(url,path)} />
+        <Navigation PageList={HomeRoute(url)} />
       </nav>
       <article>
-        <Switch>
-          <PageRouter PageList={HomeRoute(url,path)} />
-          <Redirect path="/home" to="/home/aboutPage" exact />
-        </Switch>
+          <Route path={`${path}/:path`}>
+            <Pager PageList={HomeRoute()} />
+          </Route>
       </article>
     </div>
     </Router>
