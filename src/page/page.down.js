@@ -1,6 +1,6 @@
 import Accordion from "../common_components/accordionButton";
 import {PrettyLi as Li, PrettyUl as Ul} from "../common_components/prettyList";
-import {EM} from "../common_components/PrettyFormat";
+import {A11yText, EM, TextIcon} from "../common_components/textFormat";
 
 const DownloadPage = () => {  
   return (
@@ -117,25 +117,19 @@ const Narrator_StepForInstall = () => {
           <Li>
             내레이터가 시작되면 내레이터 시작 창이 나타납니다. 
             내레이터 시작 창은 <EM>Alt + F4</EM>를 눌러 닫으면 내레이터가 꺼지므로, <EM>Alt + 아래 화살표</EM>로 창을 내리거나, <EM>Alt + Tab</EM>으로 작업을 전환하거나, <EM>
-              <span className="text text-icon icon-windows">
-                <span className="invisible-a11y">Logo</span>
-              </span> + D
+              <TextIcon iconName="windows" iconAlt="logo" /> + D
             </EM> 또는 <EM>
-              <span className="text text-icon icon-windows">
-                <span className="invisible-a11y">Logo</span>
-              </span> + M
+              <TextIcon iconName="windows" iconAlt="logo" /> + M
             </EM>을 눌러 바탕화면으로 나와야 합니다.
           </Li>
           <Li>
             <EM>
-              <span className="text text-icon icon-windows">
-                <span className="invisible-a11y">Logo</span>
-              </span>
+              <TextIcon iconName="windows" iconAlt="logo" />
             </EM> 키 또는 <EM>Control + ESC</EM>를 눌러 시작 메뉴를 열고, <EM>Edge<span className="invisible-a11y">철자: E d g e</span></EM>를 입력합니다. <EM>Microsoft Edge</EM>라고 읽어준다면 <EM>Enter</EM>를 눌러 Edge 브라우저를 실행합니다.
           </Li>
           <Li>
           <EM>Alt + D</EM>키를 눌러 주소 편집창에 <EM>nvaccess.org
-            <span className="invisible-a11y">철자: N V A C C E S S dot O R G</span>
+            <A11yText>철자: N V A C C E S S dot O R G</A11yText>
           </EM>
             를 입력하고 <EM>Enter</EM>를 눌러 이동하세요.
             <Ul>
