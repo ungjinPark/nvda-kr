@@ -17,6 +17,9 @@
       }
     }
   }
+  &.wide-margin p{
+    margin:1em 0;
+  }
   .text-icon{
     &:before{
       font-size:0.8em;
@@ -34,9 +37,6 @@
     font-weight: bold;
   }
   .text,&.text{
-    &.wide-margin p{
-      margin:1em 0;
-    }
     &.large{
       font-weight:700;
       font-size:1.8em;
@@ -76,6 +76,7 @@
       display: grid;
       margin:1em 0;
       width:100%;
+      line-height: 140%;
       grid-template-columns: 1em auto;
       flex:1;
       span.li-text{

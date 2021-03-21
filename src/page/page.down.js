@@ -8,7 +8,7 @@ const DownloadPage = () => {
     <h2>NVDA 다운로드 방법</h2>
       <p>NVDA를 내려받는 방법은 두 가지가 있습니다. NVAccess 영문 홈페이지의 기본 NVDA와
       경북점자도서관에서 사회복지공동모금회의 지원을 받아 만든 보이스위드 버전을 Wellbook 홈페이지에서 받으실 수 있습니다.</p>
-      <p>Windows 10이 설치된 PC라면 센스리더와 같은 유료 스크린리더 없어도 <span className="text bold color-emphasis">Control + <span className="text text-icon icon-windows"><span className="invisible-a11y">Logo</span></span> + Enter</span> 키를 눌러 내레이터를 켜고 설치를 진행하실 수 있습니다.</p>
+      <p>Windows 10이 설치된 PC라면 센스리더와 같은 유료 스크린리더 없어도 <EM>Control</EM> + <EM><TextIcon iconAlt="logo" iconName="windows" /></EM> + <EM>Enter</EM>키를 눌러 내레이터를 켜고 설치를 진행하실 수 있습니다.</p>
       <Accordion
       useSymbol={true}
       useExitButton={true}
@@ -111,24 +111,18 @@ const Narrator_StepForInstall = () => {
         <p>다음 목록에 따라서 진행하세요.</p>
         <Ul>
           <Li>
-          <EM>Control + <span className="text text-icon icon-windows"><span className="invisible-a11y">Logo</span></span> + Enter</EM>
+          <EM>Control</EM> + <EM><TextIcon iconName="windows" iconAlt="logo" /></EM> + <EM>Enter</EM>
             키를 눌러 내레이터를 시작하세요.
           </Li>
           <Li>
             내레이터가 시작되면 내레이터 시작 창이 나타납니다. 
-            내레이터 시작 창은 <EM>Alt + F4</EM>를 눌러 닫으면 내레이터가 꺼지므로, <EM>Alt + 아래 화살표</EM>로 창을 내리거나, <EM>Alt + Tab</EM>으로 작업을 전환하거나, <EM>
-              <TextIcon iconName="windows" iconAlt="logo" /> + D
-            </EM> 또는 <EM>
-              <TextIcon iconName="windows" iconAlt="logo" /> + M
-            </EM>을 눌러 바탕화면으로 나와야 합니다.
+            내레이터 시작 창은 <EM>Alt</EM> + <EM>F4</EM>를 눌러 닫으면 내레이터가 꺼지므로, <EM>Alt</EM> + <EM>아래 화살표</EM>로 창을 내리거나, <EM>Alt</EM> + <EM>Tab</EM>으로 작업을 전환하거나, <EM><TextIcon iconName="windows" iconAlt="logo" /></EM> + <EM>D</EM> 또는 <EM><TextIcon iconName="windows" iconAlt="logo" /></EM> + <EM>M</EM>을 눌러 바탕화면으로 나와야 합니다.
           </Li>
           <Li>
-            <EM>
-              <TextIcon iconName="windows" iconAlt="logo" />
-            </EM> 키 또는 <EM>Control + ESC</EM>를 눌러 시작 메뉴를 열고, <EM>Edge<span className="invisible-a11y">철자: E d g e</span></EM>를 입력합니다. <EM>Microsoft Edge</EM>라고 읽어준다면 <EM>Enter</EM>를 눌러 Edge 브라우저를 실행합니다.
+            <EM><TextIcon iconName="windows" iconAlt="logo" /></EM> 키 또는 <EM>Control</EM> + <EM>ESC</EM>를 눌러 시작 메뉴를 열고, <EM>Edge<span className="invisible-a11y">철자: E d g e</span></EM>를 입력합니다. <EM>Microsoft Edge</EM>라고 읽어준다면 <EM>Enter</EM>를 눌러 Edge 브라우저를 실행합니다.
           </Li>
           <Li>
-          <EM>Alt + D</EM>키를 눌러 주소 편집창에 <EM>nvaccess.org
+          <EM>Alt</EM> + <EM>D</EM>키를 눌러 주소 편집창에 <EM>nvaccess.org
             <A11yText>철자: N V A C C E S S dot O R G</A11yText>
           </EM>
             를 입력하고 <EM>Enter</EM>를 눌러 이동하세요.

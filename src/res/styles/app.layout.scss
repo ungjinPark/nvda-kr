@@ -11,15 +11,16 @@
   grid-template-rows: 1fr 12fr 1fr;
   grid-auto-rows: 1fr;
   grid-auto-flow: column;
-  gap:1.2rem;
+  gap:1.7rem;
 }
-p{margin:0.3em 0;}
-
+p{margin:1em 0;
+  line-height: 140%;}
 .layout-bar.common-tops{
   grid-column: 1 / span 2; grid-row: 1;
 }
 
 article,section,aside{
+  padding:0.2em;
   margin:0.8em 0;
 }
 
@@ -76,7 +77,10 @@ article,section,aside{
     font-size:0.75em;
   }
 
-  p{margin:0.25em 0;}
+  p{
+    margin:0.5em 0;
+    line-height: 130%;
+  }
 
   .layout-bar.common-tops{
     .header-navigation {

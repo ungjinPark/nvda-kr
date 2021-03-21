@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {NavLink, Route} from 'react-router-dom'
+import React from 'react';
+import {NavLink} from 'react-router-dom'
 const PageNavLink = (props) =>{
   return (
     <NavLink to={props.to} exact={props.exact}>{props.menuText}</NavLink>

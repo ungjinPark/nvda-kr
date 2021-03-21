@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {Route, BrowserRouter as Router, useRouteMatch } from 'react-router-dom';
 import { HomeRoute } from './info.PageRoute';
 import { Navigation } from '../common_components/Navigation';

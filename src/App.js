@@ -1,11 +1,9 @@
 import './res/styles/app.layout.scss';
 import Landmarks from "./common_components";
 import {MainRoute} from './page/info.PageRoute'
-import {Redirect,useParams,Route, Switch} from 'react-router';
+import {Redirect,Route, Switch} from 'react-router';
 import Pager from './page/PageRouter';
-import { useState } from 'react';
 function App() {
-  const [docTitle,setDocTitle] = useState('NVDA 한국');
   return (
     <div className="page-wrapper">
       <Landmarks.TopBar />
