@@ -24,7 +24,7 @@ const AboutForum=()=>{
                         <a href="https://www.facebook.com/groups/nvdakr/"
                         className="button-style facebook">
                             <span className="icon-facebook"></span>
-                            Facebook
+                            facebook
                             <span className="text block smaller">
                             NVDA 한국 사용자 포럼 바로가기
                             </span>

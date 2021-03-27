@@ -7,9 +7,11 @@ const TopBar = ()=>{
 <div className="layout-bar common-tops">
     <header>
     <div className="header-title">
-      <Link to="/">
-        <h1><span aria-hidden="true" className="icon-nvda"></span>NVDA 한국</h1>
-      </Link>
+      <h1>
+        <Link to="/" id="header_start">
+          <span aria-hidden="true" className="icon-nvda"></span>NVDA 한국
+        </Link>
+      </h1>
     </div>
     <div className="header-navigation">
       <nav>

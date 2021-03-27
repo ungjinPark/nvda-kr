@@ -84,7 +84,7 @@ const Accordion = ({
 }
 Accordion.defaultProps = {
     expanded:false,
-    ButtonClassName:"fency-button",
+    ButtonClassName:"fency-button nvda-kr-accordion round-normal size-normal",
     ContentBoxClassName:"accordion-content-box",
     ButtonSlot:"set your button content",
     useSymbol:false,

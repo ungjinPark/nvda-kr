@@ -1,23 +1,34 @@
 :root{//common
   --accent-body:#660099;
+  --table-row-header:var(--accent-body);
 }
 @media screen and (prefers-color-scheme:dark) {
   :root {
     --main-body:#010915;
     --main-foreground:#fdfaf8;
+    --inverted-foreground:var(--main-body);
     --available-link-color:#ffceff;
     --visited-link-color:#bf8eff;
     --aside-info:#186e4f;
+    --table-col-header:#883fbf;
     --gradient-text-color:linear-gradient(45deg, #9fefaf,#5fafcf,#af9fdf);
+    --error-color:#ff0000;
+    --warnning-color:#cf5f30;
+    --successful-color:#3ff36f;
   }
 }
 @media screen and (prefers-color-scheme:light), (prefers-color-scheme:no-preference){
   :root {
     --main-body:#fdfaf8;
     --main-foreground:#0d1c1f;
+    --inverted-foreground:var(--main-body);
     --visited-link-color:#4f1ecf;
     --available-link-color:#7f5eff;
     --aside-info:#58de4f;
+    --table-col-header:#883fbf;
+    --error-color:#af0000;
+    --warnning-color:#c74f00;
+    --successful-color:#0f9a0f;
     --gradient-text-color:linear-gradient(45deg, #1f6f4f,#3f6faf,#af9fdf);
   }
 }

@@ -3,6 +3,15 @@
 @use 'sass:meta';
 
 @mixin textTool (){
+  &.color-error {
+    color:var(--error-color);
+  }
+  &.color-warning {
+    color:var(--warnning-color);
+  }
+  &.color-success {
+    color:var(--successful-color);
+  }
   &.color-emphasis,.color-emphasis{
     background-attachment: fixed;
     color:transparent; background-size:100%;
@@ -55,13 +64,13 @@
   }
 }
 
-@mixin drawing {
+  @mixin drawing {
   html,body,.page-wrapper{
     background-color: var(--main-body);
     color: var(--main-foreground);
   }
   ul{display:block; list-style: none;}
-  p,div,section,article,aside,li,a{
+  p,div,section,article,aside,li,a,span{
     @include textTool();
   }
   nav li{
@@ -78,14 +87,18 @@
       width:100%;
       line-height: 140%;
       grid-template-columns: 1em auto;
+      -ms-grid-columns: 1em auto;
       flex:1;
       span.li-text{
+        display:block;
+        -ms-grid-column: 2;
         justify-self: flex-start;
       }
       span.li-bullet::before{
         content:"-";
         margin-right:0.4em;
         grid-column: 1;
+        -ms-grid-column: 1;
         justify-self: flex-start;
       }
     }
@@ -98,6 +111,19 @@
     }
     &.info{
       background-color: var(--aside-info);
+      @media (-ms-high-contrast:active),(forced-colors:active){
+        &{
+          border:solid 0.1em;
+          h1:nth-child(1),
+          h2:nth-child(1),
+          h3:nth-child(1),
+          h4:nth-child(1),
+          h5:nth-child(1),
+          h6:nth-child(1){
+              border-bottom:solid 0.05em;
+          }
+        }
+      }
     }
   }
 
@@ -127,15 +153,30 @@
         border-top-right-radius: 1em;
       }
     }
-
+    input{
+      font-size: 1em;
+      background-color: var(--main-body);
+      color: var(--main-foreground);
+      border: solid 1px; margin:0 1em;
+      display: inline-block;
+      &::placeholder{
+        font-size:0.8em;
+      }
+    }
     button.fency-button{
       position: relative;
-      border:solid 1px;
+      border:solid 2px;
       background:var(--accent-body);
       color:#fff;
+      box-shadow:
+      inset 0 0 0 0.05rem #000,
+      0 0 0 0.05rem #000;
       padding:0.3em 0.2em;
       .state-symbol{
         font-size:0.8em;
+      }
+      &:disabled{
+        opacity: 0.6;
       }
       &.nvda-kr-accordion{
         display:inline-grid; text-align: center;
@@ -187,9 +228,37 @@
 
     table{
       border-collapse: collapse;
+      box-shadow:0 0 0 0.01rem #000;
       &.normal-style{
-        width:60%;
+        width:100%;
         font-size:0.9em;
+      }
+      &.color-table.default{
+        thead tr:nth-child(1) th, tbody tr:nth-child(1) th{
+          background:var(--table-row-header);
+          color:white;
+        }
+        tbody{
+          background:var(--main-body);
+          color:var(--main-foreground);
+          tr:not(:first-child){
+            th:first-child{
+              color:white;
+              background: var(--table-col-header);
+            }
+          }
+          th,td{
+            border-color:white;
+            box-shadow:
+            inset 0 0 0 0.01rem #000,
+            0 0 0 0.01rem #000;
+          }
+        }
+      }
+      &.non-color-table{
+        td,th,table,thead,tbody,tfoot,caption{
+          background: transparent;
+        }
       }
       th,td{
         border:solid 1px;
@@ -210,13 +279,21 @@
           width:100%;
         }
         &.sys-req{
-          col.first{width:35%;}
+          col.first{width:25%;}
           col.second{width:auto;}
         }
       }
-
     }
-    
+    a.region-shuttle-link{
+      color:white;
+      display:grid;
+      width:2em; height:2em;
+      border:solid 0.1em;
+      border-radius: 50%;
+      background-color: var(--accent-body);
+      justify-items: center;
+      align-items: center;
+    }
     a.button-style{
       display:block;
       &.facebook {
@@ -242,8 +319,8 @@
           width:1.4em; height:1.4em;
           vertical-align: middle;
           background:
-           url('../img/nvaccess.png'),
-           #fff;
+            url('../img/nvaccess.png'),
+            #fff;
           background-size:cover;
           border-radius: 50%;
           margin-right:0.2em;
@@ -263,8 +340,9 @@
           background-color:var(--accent-body);
           &:before{
             align-self:center;
-          }
+          }          
         }
+
         @media screen and (min-width:1024px){
           &{
             width:60%;
@@ -334,5 +412,48 @@
   .layout-bar.common-bottoms{
     footer{background-color:#200f3f;
     color:white;}
+  }
+}
+
+@media (forced-colors:active),(-ms-high-contrast:active){
+  *{
+    background-color:transparent;
+  }
+  .layout-bar.common-tops a:not([aria-current="page"]){
+    -ms-high-contrast-adjust: none;
+    forced-color-adjust: none;
+    color:CanvasText;
+  }
+
+  .layout-bar.common-tops a[aria-current="page"]{
+    -ms-high-contrast-adjust: none;
+    forced-color-adjust: none;
+    border:solid 0.1em !important;
+  }
+
+
+  .layout-bar{
+    &.common-tops{
+      border-bottom:solid 0.1em;
+    }
+    &.common-tops nav{
+      border-top: solid 0.1em;
+    }
+    &.common-bottoms{
+      border-top:solid 0.1em;
+      border-bottom:solid 0.1em;
+    }
+  }
+
+  main nav a:any-link{
+    text-decoration: underline;
+  }
+
+  a.button-style{
+    border:solid 0.15em;
+  }
+
+  .download .icon-nvda{forced-color-adjust: none;
+    background-color:var(--accent-body);
   }
 }
