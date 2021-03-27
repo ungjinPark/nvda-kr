@@ -68,7 +68,7 @@ const DownloadPage = () => {
               <td>
                 <Ul>
                   <Li>최신버전은 Windows 7과 Windows Server 2008 Service Pack 1 부터 사용 가능</Li>
-                  <Li>Windows 7 이하의 Windows는 NVDA 2017.3을 별도로 설치</Li>
+                  <Li>Windows 7 미만의 Windows는 NVDA 2017.3을 별도로 설치하여 사용</Li>
                 </Ul>
               </td>
             </tr>
@@ -255,6 +255,7 @@ const VersionDownloader = () => {
   const allowChar = /^[\d\.]$/
   let inputValue;
   let [isUrlAvailable,setUrlAvailable] = useState(true);
+  let [getButtonDisabledState,setButtonDisabled] = useState(true);
   let vYear;
   let vSubMajor;
   
@@ -293,12 +294,14 @@ const VersionDownloader = () => {
     ){
       inputValue = e.target.value;
       setUrlAvailable(true);
+      setButtonDisabled(!isUrlAvailable);
       announcement(`
       <span class="text color-success">
       규칙 일치: 버전 규칙과 일치합니다. Enter를 눌러 다운로드를 시도할 수 있습니다.
       </span>`)
     }else{
-      setUrlAvailable(false);
+      setUrlAvailable(true);
+      setButtonDisabled(!isUrlAvailable);
     }
   }
 
@@ -314,12 +317,14 @@ const VersionDownloader = () => {
     ) {
         inputValue = value;
         setUrlAvailable(true);
+        setButtonDisabled(!isUrlAvailable);
         announcement(`
         <span class="text color-success">
         규칙 일치: 버전 규칙과 일치합니다. Enter를 눌러 다운로드를 시도할 수 있습니다.
         </span>`)
       }else{
         setUrlAvailable(false);
+        setButtonDisabled(!isUrlAvailable);
         announcement(``);
       }
   }
@@ -338,8 +343,8 @@ const VersionDownloader = () => {
     }
   }
 
-  return (<div>
-    <label htmlFor="version-downloader">버전 다운로더</label>
+  return (<div className="version-downloader">
+    <label htmlFor="version-downloader">NVDA 버전 선택 다운로드 도우미</label>
     <input aria-describedby="desc-version-downloader" placeholder="숫자, 마침표로 버전명 입력"
     type="text" id="version-downloader"
     onInput={checkInput}
@@ -347,7 +352,7 @@ const VersionDownloader = () => {
     onKeyDown={startDownload}
     onBlur={checkManually} />
     <button className="fency-button" id="submit_version_input" onClick={startDownload}
-    disabled={!isUrlAvailable}>다운로드</button>
+    disabled={getButtonDisabledState}>다운로드 도우미 실핼</button>
     <p id="validation-announcer" aria-live="polite"></p>
     <p id="desc-version-downloader">
       "2020.1"와 같이 버전명을 올바르게 입력하고 Enter를 누르면 다운로드가 시작됩니다.
