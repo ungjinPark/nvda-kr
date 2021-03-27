@@ -279,7 +279,7 @@ const VersionDownloader = () => {
     vSubMajor = TextStructure && TextStructure[2] ? TextStructure[2] : null;
 
     if(data !== null && !isAllowedChar){
-      e.target.value = inputValue.substring(0,target.value.length-1);
+      e.target.value = e.target.value.substring(0,target.value.length-1);
 
       announcement(`
       <span class="text color-error">
@@ -294,14 +294,14 @@ const VersionDownloader = () => {
     ){
       inputValue = e.target.value;
       setUrlAvailable(true);
-      setButtonDisabled(!isUrlAvailable);
+      setButtonDisabled(false);
       announcement(`
       <span class="text color-success">
       규칙 일치: 버전 규칙과 일치합니다. Enter를 눌러 다운로드를 시도할 수 있습니다.
       </span>`)
     }else{
-      setUrlAvailable(true);
-      setButtonDisabled(!isUrlAvailable);
+      setUrlAvailable(false);
+      setButtonDisabled(true);
     }
   }
 
@@ -317,14 +317,14 @@ const VersionDownloader = () => {
     ) {
         inputValue = value;
         setUrlAvailable(true);
-        setButtonDisabled(!isUrlAvailable);
+        setButtonDisabled(false);
         announcement(`
         <span class="text color-success">
         규칙 일치: 버전 규칙과 일치합니다. Enter를 눌러 다운로드를 시도할 수 있습니다.
         </span>`)
       }else{
         setUrlAvailable(false);
-        setButtonDisabled(!isUrlAvailable);
+        setButtonDisabled(true);
         announcement(``);
       }
   }
