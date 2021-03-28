@@ -2,7 +2,7 @@
 @use 'sass:color';
 @use 'sass:meta';
 
-@mixin textTool (){
+@mixin textTool (){// [textTool Start]
   &.color-error {
     color:var(--error-color);
   }
@@ -62,9 +62,10 @@
       font-size:0.5em;
     }
   }
-}
+}//[textTool End]
 
-  @mixin drawing {
+@mixin drawing {//[Drawing Global Start]
+  
   html,body,.page-wrapper{
     background-color: var(--main-body);
     color: var(--main-foreground);
@@ -143,7 +144,6 @@
         margin:0 0.2rem;
       }
     }
-    
 
     div.accordion-content-box{
       margin:1em 0;
@@ -157,7 +157,7 @@
       font-size: 1em;
       background-color: var(--main-body);
       color: var(--main-foreground);
-      border: solid 1px; margin:0 1em;
+      border: solid 1px;
       display: inline-block;
       &::placeholder{
         font-size:0.8em;
@@ -366,6 +366,45 @@
       @include textTool();
     }
 
+    .version-downloader{
+      @media (-ms-high-contrast:none), (-ms-high-contrast:active){
+        display: none;
+      }
+      .downloader-form{
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto 1fr;
+        justify-items: stretch;
+        text-align: center;
+        #validation-announcer{
+          width:100%;
+          grid-row:3;
+          grid-column: 1 / span 2;
+        }
+        @media (max-width:1024px) {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          grid-template-rows: auto auto 1fr;
+          [for="version-downloader"]{
+            display: inline-block; width:100%;
+          }
+          #version-downloader{
+            width:100%;
+          }
+          #submit_version_input{
+            width:100%;
+            grid-row: 2;
+            grid-column:1 / span 2;
+          }
+          #validation-announcer{
+            width:100%;
+            grid-row:3;
+            grid-column: 1 / span 2;
+          }
+        }
+      }
+    }
+
     h1,h2,h3,h4,h5,h6,p,img,a,table,ul,ol,aside.info,span,button,input,textarea,select{
       animation: Appearance 0.4s 1 linear;
       @media (prefers-reduced-motion:reduce){
@@ -413,7 +452,7 @@
     footer{background-color:#200f3f;
     color:white;}
   }
-}
+}//[Drawing Global End]
 
 @media (forced-colors:active),(-ms-high-contrast:active){
   *{

@@ -132,12 +132,13 @@ article,section,aside{
     display: flex;}
   nav ul{display: flex;}
   nav ul li{width:15vw;
-     height:100%; text-align: center;}
+     height:100%;}
   li a{
       font-size:1em;
       width:100%; height:100%; display:flex;
-      place-content: center;
+      justify-content: center;
       align-items: center;
+      text-align: center;
   }
 }
 

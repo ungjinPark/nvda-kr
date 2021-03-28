@@ -251,8 +251,8 @@ const Narrator_StepForInstall = () => {
 }
 
 const VersionDownloader = () => {
-  const typeCheck = /(2[\d]{3})?\.+(\d{1,2})?\.?([\d]{1,2})?$/
-  const allowChar = /^[\d\.]$/
+  const typeCheck = /(2[\d]{3})?\.+(\d{1,2})?\.?([\d]{1,2})?$/gi
+  const allowChar = /^[0-9\.]$/gi
   let inputValue;
   let [isUrlAvailable,setUrlAvailable] = useState(true);
   let [getButtonDisabledState,setButtonDisabled] = useState(true);
@@ -277,9 +277,9 @@ const VersionDownloader = () => {
     const TextStructure = typeCheck.exec( target.value );
     vYear = TextStructure && TextStructure[1] ? TextStructure[1] : null;
     vSubMajor = TextStructure && TextStructure[2] ? TextStructure[2] : null;
-
     if(data !== null && !isAllowedChar){
       e.target.value = e.target.value.substring(0,target.value.length-1);
+      console.log(isAllowedChar)
 
       announcement(`
       <span class="text color-error">
@@ -302,6 +302,7 @@ const VersionDownloader = () => {
     }else{
       setUrlAvailable(false);
       setButtonDisabled(true);
+      announcement(``);
     }
   }
 
@@ -333,7 +334,7 @@ const VersionDownloader = () => {
     const eventType = e.nativeEvent.type;
     
     if(
-      eventType === 'keydown' && e.key === 'Enter' || eventType === 'click'
+      eventType === 'keydown' && (e.key === 'Enter' || eventType === 'click')
     ){
       if(isUrlAvailable){
         inputValue = document.querySelector('#version-downloader').value;
@@ -343,20 +344,31 @@ const VersionDownloader = () => {
     }
   }
 
-  return (<div className="version-downloader">
-    <label htmlFor="version-downloader">NVDA 버전 선택 다운로드 도우미</label>
-    <input aria-describedby="desc-version-downloader" placeholder="숫자, 마침표로 버전명 입력"
-    type="text" id="version-downloader"
-    onInput={checkInput}
-    onFocus={checkManually}
-    onKeyDown={startDownload}
-    onBlur={checkManually} />
-    <button className="fency-button" id="submit_version_input" onClick={startDownload}
-    disabled={getButtonDisabledState}>다운로드 도우미 실핼</button>
-    <p id="validation-announcer" aria-live="polite"></p>
+  return (
+  <div className="version-downloader">
+    <h3>버전 선택 설치 도우미</h3>
     <p id="desc-version-downloader">
       "2020.1"와 같이 버전명을 올바르게 입력하고 Enter를 누르면 다운로드가 시작됩니다.
     </p>
+    <div className="downloader-form">
+      <label htmlFor="version-downloader">버전 검색</label>
+      <input 
+        aria-describedby="desc-version-downloader"
+        placeholder="숫자, 마침표로 버전명 입력"
+        type="text" id="version-downloader"
+        onInput={checkInput}
+        onFocus={checkManually}
+        onKeyDown={startDownload}
+        onBlur={checkManually}
+      />
+      <button
+        className="fency-button"
+        id="submit_version_input"
+        onClick={startDownload}
+        disabled={getButtonDisabledState}
+      >다운로드 도우미 실핼</button>
+      <p id="validation-announcer" aria-live="polite"></p>
+    </div>
   </div>)
 }
 
