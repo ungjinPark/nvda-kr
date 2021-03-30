@@ -251,8 +251,8 @@ const Narrator_StepForInstall = () => {
 }
 
 const VersionDownloader = () => {
-  const typeCheck = /(2[\d]{3})?\.+(\d{1,2})?\.?([\d]{1,2})?$/gi
-  const allowChar = /^[0-9\.]$/gi
+  const typeCheck = /(2[\d]{3})?\.+(\d{1,2})?\.?([\d]{1,2})?$/;
+  const allowChar = /^[\d\.]$/;
   let inputValue;
   let [isUrlAvailable,setUrlAvailable] = useState(true);
   let [getButtonDisabledState,setButtonDisabled] = useState(true);

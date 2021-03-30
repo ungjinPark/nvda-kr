@@ -42,3 +42,7 @@ button,input,select,textarea{
   appearance: none;
   border:none;
 }
+
+main{
+  position:relative;
+}

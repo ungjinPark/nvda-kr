@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import {isIE,isEdge} from 'react-device-detect';
 const RegionShuttleLink = ({
     DestinationHash,
     children,
