@@ -1,7 +1,7 @@
 import { A11yText, EM } from "./textFormat"
-import { isIE, isEdge } from "react-device-detect";
+import { isIE, isLegacyEdge } from "react-device-detect";
 const IEWarningArea = () => {
-  if(isIE || isEdge){
+  if(isIE || isLegacyEdge){
     return (
       <section class="suggest_modern_browser"
       role="alert region">
